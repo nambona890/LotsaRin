@@ -11,7 +11,7 @@ using System.Windows;
 using System.Timers;
 using System.Diagnostics;
 
-namespace AThing
+namespace LotsaRin
 {
     public partial class Form1 : Form
     {

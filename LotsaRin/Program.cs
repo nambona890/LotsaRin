@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
+using System.IO;
+using System.Reflection;
 
 namespace LotsaRin
 {
@@ -28,6 +30,8 @@ namespace LotsaRin
                 threads2[i].Start();
                 Thread.Sleep(50);
             }
+            Thread sound = new Thread(RunSound);
+            sound.Start();
             timer = new System.Timers.Timer();
             timer.Interval = Convert.ToInt32(1000.0 / 120.0);
             timer.Elapsed += Speen;
@@ -50,10 +54,15 @@ namespace LotsaRin
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form2(angle));
         }
+        static void RunSound()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new SoundStuff());
+        }
         static void Speen(object source, System.Timers.ElapsedEventArgs e)
         {
             angle += 0.05;
         }
-
     }
 }
