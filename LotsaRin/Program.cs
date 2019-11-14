@@ -17,6 +17,7 @@ namespace LotsaRin
         [STAThread]
         static void Main()
         {
+            random = new Random(Convert.ToInt32(DateTime.Now.Ticks&0x00000000ffffffff));
             Thread[] threads1 = new Thread[8];
             for (int i = 0; i < threads1.Length; i++)
             {
@@ -41,7 +42,7 @@ namespace LotsaRin
         static System.Timers.Timer timer;
 
         public static double angle = 0;
-        public static Random random = new Random();
+        public static Random random;
         static void RunApp1()
         {
             Application.EnableVisualStyles();
